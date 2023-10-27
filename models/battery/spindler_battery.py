@@ -1,16 +1,17 @@
 #!/usr/bin/python3
 """Defines the SpindlerBattery class"""
-from models.serviceable import Serviceable
-from models.car import Car
+from models.battery.battery import Battery
+from models.utils import add_years_to_date
 
 
-class SpindlerBattery(Car, Serviceable):
+class SpindlerBattery(Battery):
     def __init__(self, last_service_date, current_date):
-        super().__init__(last_service_date)
+        self.last_service_date = last_service_date        
         self.current_date = current_date
 
-    def battery_should_be_serviced(self):
-        if self.current_date > 2:
+    def needs_service(self):
+        date_battery_be_serviced = add_years_to_date(self.last_service_date,  2)
+        if date_battery_be_serviced < self.current_date:
             return True
         else:
             return False

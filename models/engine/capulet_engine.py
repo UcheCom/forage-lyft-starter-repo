@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 """Defines the CapuletEngine class"""
-from models.serviceable import Serviceable
-from models.car import Car
+from models.engine.engine import Engine
 
 
-class CapuletEngine(Car, Serviceable):
-    def __init__(self, last_service_date, current_mileage, last_service_mileage):
-        super().__init__(last_service_date)
+class CapuletEngine(Engine):
+    def __init__(self, current_mileage, last_service_mileage):
         self.current_mileage = current_mileage
         self.last_service_mileage = last_service_mileage
 
