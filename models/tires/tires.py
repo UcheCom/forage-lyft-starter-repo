@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-"""Defines the Tire class"""
+"""Defines the Tires class"""
 from abc import ABC
 
 
-class Tire(ABC):
+class Tires(ABC):
     def needs_service(self):
         pass

@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-"""Defines the CarriganTire class"""
-from models.tire.tire import Tire
+"""Defines the OctoprimeTires class"""
+from models.tires.tires import Tires
 
 
-class CarriganTire(Tire):
+class OctoprimeTires(Tires):
     def __init__(self, tire_wear_array):
         self.tire_wear_array = tire_wear_array
 
     def needs_service(self):
-        if any(wear >= 0.9 for wear in tire_wear_array):
+        if sum(self.tire_wear_array) >= 3.0:
             return True
         else:
             return False
